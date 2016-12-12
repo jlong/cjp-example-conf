@@ -11,7 +11,9 @@ The following themes are explored:
   multiple masters) into one set of files? Configuration can then be pushed
   from CJOC to CJP masters as needed.
 * What if Jenkins config as code was built from the ground up with support for
-  Docker containers?
+  Docker containers? While support for Docker would almost certainly be
+  optional, what would Jenkins configuration look like if Docker support was a
+  first-class feature?
 
 In this model a new command line tool would need to be created for Jenkins to
 evaluate configuration, bring up docker containers, and sync configuration
@@ -29,7 +31,7 @@ After creating your config, you can run:
 
 This does the following:
 
-1. Reads configuration from the entry point `conf/main.conf`
+1. Lints and reads configuration from the entry point `conf/main.conf`
 2. Detects that the config is using Docker
 3. Generates a docker-compose.yml in a temp directory
 4. Executes `docker-compose up -d` on this configuration to start the necessary Docker containers in the background
