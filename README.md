@@ -17,10 +17,8 @@ The following themes are explored:
 
 In this model a new command line tool would need to be created for Jenkins to
 evaluate configuration, bring up docker containers, and sync configuration
-across masters.
-
-Below, I've detailed the experience with an imaginary `jenkins` configuration
-tool below.
+across masters. I've detailed the experience with an imaginary `jenkins`
+configuration tool below.
 
 
 ## Start containers
