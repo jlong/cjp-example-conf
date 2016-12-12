@@ -1,9 +1,9 @@
 # CJP Example Configuration DSL
 
 This is an experimental repository that contains example configuration for CJP
-written in the Groovy syntax. Have a look at [conf/main.conf](conf/main.conf)
-to view example configuration. None of this is working code. It is merely the
-sketch of an idea.
+written in an imaginary Groovy DSL. Have a look at
+[conf/main.conf](conf/main.conf) to view example configuration. None of this is
+working code. It is merely the sketch of an idea.
 
 The following themes are explored:
 
@@ -27,16 +27,29 @@ tool below.
 
 After creating your config, you can run:
 
-    $ jenkins up -d -c conf/main.conf
+    $ jenkins start -d -c conf/main.conf
 
 This does the following:
 
 1. Lints and reads configuration from the entry point `conf/main.conf`
 2. Detects that the config is using Docker
-3. Generates a docker-compose.yml in a temp directory
-4. Executes `docker-compose up -d` on this configuration to start the necessary
-   Docker containers in the background
+3. Generates a `docker-compose.yml` in a temp directory
+4. Executes `docker-compose up -d` on this configuration to build and start the
+   necessary Docker containers in the background
 3. Syncs configuration through CJOC across masters
+
+
+## Stop containers
+
+To stop running containers:
+
+    $ jenkins stop -c conf/main.conf
+
+This does the following:
+
+1. Reads configuration from the entry point `conf/main.conf`
+2. Generates a `docker-compose.yml` in a temp directory
+3. Executes `docker-compose stop` to stop running containers
 
 
 ## Lint config
@@ -50,7 +63,8 @@ This does the following:
 1. Reads configuration from the entry point `conf/main.conf`
 2. Outputs parse errors with file and line number
 
-## Generate docker-compose file
+
+## Generate a docker-compose file
 
 For debugging purposes or integration with other scripts it is helpful to be
 able to generate a `docker-compose` configuration file. This is accomplished
