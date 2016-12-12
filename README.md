@@ -70,12 +70,13 @@ For debugging purposes or integration with other scripts it is helpful to be
 able to generate a `docker-compose` configuration file. This is accomplished
 with:
 
-    $ jenkins compose -c conf/main.conf my-docker-compose.yml
+    $ jenkins compose -c conf/main.conf > my-docker-compose.yml
 
 This does the following:
 
 1. Reads configuration from `conf/main.conf`
-2. Generates `my-docker-compose.yml` in the current directory 
+2. Outputs docker-compose compatible YAML
+3. Pipes the output into `my-docker-compose.yml`
 
 
 ## Sync configuration
